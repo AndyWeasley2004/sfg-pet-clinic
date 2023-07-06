@@ -1,11 +1,7 @@
 package guru.springframework.sfgpetclinic.bootstrap;
 
 import guru.springframework.sfgpetclinic.model.*;
-import guru.springframework.sfgpetclinic.services.OwnerService;
-import guru.springframework.sfgpetclinic.services.PetTypeService;
-import guru.springframework.sfgpetclinic.services.SpecialityService;
-import guru.springframework.sfgpetclinic.services.VetService;
-import guru.springframework.sfgpetclinic.services.springdatajpa.VisitService;
+import guru.springframework.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -73,9 +69,9 @@ public class DataLoader implements CommandLineRunner {
         Owner owner2 = new Owner();
         owner2.setFirstName("Aviva");
         owner2.setLastName("Xu");
-        owner1.setAddress("9450 Gilman Drive");
-        owner1.setCity("La Jolla");
-        owner1.setTelephone("8583051264");
+        owner2.setAddress("9450 Gilman Drive");
+        owner2.setCity("La Jolla");
+        owner2.setTelephone("8583051264");
         ownerService.save(owner2);
 
         System.out.println("Loading Vets...");
