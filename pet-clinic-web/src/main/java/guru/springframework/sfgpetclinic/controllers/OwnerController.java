@@ -3,6 +3,7 @@ package guru.springframework.sfgpetclinic.controllers;
 import guru.springframework.sfgpetclinic.model.Owner;
 import guru.springframework.sfgpetclinic.services.OwnerService;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,9 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-/**
- * Created by jt on 7/22/18.
- */
+@Slf4j
 @RequestMapping("/owners")
 @Controller
 public class OwnerController {
@@ -73,6 +72,7 @@ public class OwnerController {
     @GetMapping("/new")
     public String initCreationForm(Model model) {
         model.addAttribute("owner", Owner.builder().build());
+        log.debug("Form created");
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
 
@@ -82,6 +82,8 @@ public class OwnerController {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
         } else {
             Owner savedOwner =  ownerService.save(owner);
+            log.debug("owner's id is " + owner.getId());
+            log.debug("savedOwner's id is " + savedOwner.getId());
             return "redirect:/owners/" + savedOwner.getId();
         }
     }
