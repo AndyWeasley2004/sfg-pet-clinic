@@ -23,4 +23,8 @@ public class Visit extends BaseEntity {
     @JoinColumn(name = "pet_id")
     private Pet pet;
 
+    public LocalDate getDate(){
+        return date;
+    }
+
 }
