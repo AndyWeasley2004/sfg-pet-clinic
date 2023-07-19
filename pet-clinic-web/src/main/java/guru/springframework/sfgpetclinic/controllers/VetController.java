@@ -27,9 +27,16 @@ public class VetController {
         return "vets/index";
     }
 
+    /**
+     * form a xml file for vets
+     *
+     * @return all vets in the list
+     */
     @GetMapping("/api/vets")
     public @ResponseBody Set<Vet> getVetsJson(){
 
         return vetService.findAll();
     }
+
+
 }
