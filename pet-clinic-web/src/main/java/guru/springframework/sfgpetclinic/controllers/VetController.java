@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Set;
 
-/**
- * Created by jt on 7/22/18.
- */
 @Controller
 public class VetController {
 

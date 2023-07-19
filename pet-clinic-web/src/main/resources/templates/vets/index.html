@@ -10,17 +10,17 @@
     <table id="vets" class="table table-striped">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Name</th>
+                <th>Specialties</th>
             </tr>
         </thead>
 
         <tbody>
             <tr th:each="vet : ${vets}">
-                <td th:text="${vet.id}">1</td>
-                <td th:text="${vet.firstName}">1</td>
-                <td th:text="${vet.lastName}">1</td>
+                <td th:text="${vet.firstName + ' ' + vet.lastName}">1</td>
+                <td><span th:each="specialty : ${vet.specialities}"
+                        th:text="${specialty.getDescription() + ' '}"/>
+                    <span th:if="${vet?.specialities?.size() == 0}">none</span></td>
             </tr>
         </tbody>
     </table>
